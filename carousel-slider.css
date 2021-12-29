@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section.carousel {
+    width: 100%;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+/* Large Image */
+.carousel__top {
+    width: 100%;
+    max-width: 1400px;  
+    height: calc((45vh + 20vw));
+    overflow: hidden; 
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 2px solid black;
+    position: relative;
+}
+
+.carousel__top:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.change.carousel__top:before {
+    animation: change-opacity .5s;
+}
+@keyframes change-opacity {
+    0% {background: rgba(0, 0, 0, 0);}
+    50% {background: rgba(0, 0, 0, .5);}
+    100% {background: rgba(0, 0, 0, 0);}
+}
+
+.carousel__top__image {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel__current-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel__top__text {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 6px 8px;
+    background: rgba(0, 0, 0, .5);
+    color: white;
+    border-radius: 13px 5px 13px 5px;
+    font-size: calc(8px + 1vw);
+}
+
+.carousel__top__number {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 2px 4px;
+    background: rgba(0, 0, 0, .5);
+    border-radius: 3px;
+    color: white;
+}
+
+.carousel__top__number span {
+    font-size: calc(8px + 1vw);
+}
+
+.carousel__top__buttons button {
+    position: absolute;
+    top: 50%;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, .5);
+    z-index: 3;
+}
+
+.carousel__top__buttons button.left-btn {
+    left: 14px;
+}
+
+.carousel__top__buttons button.right-btn {
+    right: 14px;
+}
+
+.carousel__top__buttons i {
+    font-size: calc(16px + 2vw);
+    cursor: pointer;
+    border: 2px solid white;
+    background: white;
+    border-radius: 50%;
+    opacity: .55;
+    transition: all .35s;
+}
+.carousel__top__buttons i:hover {
+    opacity: 1;
+}
+
+/* Carousel Images */
+.carousel__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button.arrow {
+    margin: 0 1rem;
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+button.arrow i {
+    font-size: calc(22px + 1.2vw);
+    border-radius: 50%;
+    border: 2px solid transparent;
+    opacity: .75;
+    background: white;
+    transition: all .35s;
+}
+button.arrow i:hover {
+    opacity: 1;
+    background: orange;
+}
+
+main.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: all 0.3s;
+}
+
+main.container::-webkit-scrollbar {
+    height: 6px;
+    width: 2px;
+    border: 1px solid #d5d5d5;
+    background: #d5d5d5;
+}
+
+main.container::-webkit-scrollbar-track {
+    --webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, .5);
+}
+
+main.container::-webkit-scrollbar-thumb {
+    background-color: #1f201f;
+    outline: 2px solid #eee;
+}
+
+/* Firefox */
+main.container {
+    scrollbar-width: thin;
+    scrollbar-color: #1f201f #d5d5d5;
+}
+/*-------*/
+
+.container__thumbnail {
+    flex: 0 0 calc(95px + 1vw);
+    cursor: pointer;
+    margin: 3px 5px;
+    border: 2px solid black;
+    border-radius: 3px;
+    overflow: hidden;
+    transform: scale(.95);
+    opacity: .7;
+    transition: all .3s;
+}
+.container__thumbnail:hover, .container__thumbnail.current-thumb {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.container__thumbnail img {
+    display: block;
+    width: 100%;
+    height: calc(34px + 1vw);
+    object-fit: cover;
+}
+
+/* Media Queries */
+@media(max-width: 768px) {
+    .container__thumbnail {
+        flex: 0 0 calc(90px + 1vw);
+    }
+}
+
+@media(max-width: 420px) {
+    .carousel__top__number {
+        padding: 1px 4px;
+    }
+
+    .container__thumbnail {
+        flex: 0 0 calc(85px + 1vw);
+    }
+}

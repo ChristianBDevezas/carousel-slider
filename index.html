@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="carousel-slider.css"/>
+  </head>
+  <body>
+    <section class="carousel">
+        <article class="carousel__top">
+            <div class="carousel__top__image">
+                <img src="img/yzf-r3.jpg" class="carousel__current-image" alt="Yamaha YZF-R3">
+            </div>
+
+            <div class="carousel__top__text">Yamaha YZF-R3</div>
+
+            <div class="carousel__top__number">
+                <span class="carousel__top__current-number">1</span>
+                <span>&#x2f;</span>
+                <span class="carousel__top__total-number">13</span>
+            </div>
+
+            <div class="carousel__top__buttons">
+                <button class="left-btn">
+                    <i class="fas fa-arrow-circle-left"></i>
+                </button>
+
+                <button class="right-btn">
+                    <i class="fas fa-arrow-circle-right"></i>
+                </button>
+            </div>
+        </article>
+
+        <article class="carousel__container">
+            <button id="slide-left" class="arrow">
+                <i class="fas fa-chevron-circle-left"></i>
+            </button>
+
+            <main class="container" id="slider">
+                <div class="container__thumbnail">
+                    <img src="img/yzf-r3.jpg" alt="Yamaha YZF-R3" />
+                </div>
+
+                <div class="container__thumbnail">
+                    <img src="img/cb500r.jpg" alt="Honda CB500R" />
+                </div>
+
+                <div class="container__thumbnail">
+                    <img src="img/yzf-r6.jpg" alt="Yamaha YZF-R6" />
+                </div>
+
+                <div class="container__thumbnail">
+                    <img src="img/zx-6r.jpg" alt="Kawasaki ZX-6R" />
+                </div>
+
+                <div class="container__thumbnail">
+                    <img src="img/gsx-600r.jpg" alt="Suzuki GSX-600R" />
+                </div>
+
+                <div class="container__thumbnail">
+                    <img src="img/cbr600rr.jpg" alt="Honda CB600RR" />
+                </div>
+
+                <div class="container__thumbnail">
+                    <img src="img/mt-07.jpg" alt="Yamaha MT-07" />
+                </div>
+
+                <div class="container__thumbnail">
+                    <img src="img/gsx-750r.jpg" alt="Suzuki GSX-750R" />
+                </div>
+
+                <div class="container__thumbnail">
+                    <img src="img/cbr1000rr.jpg" alt="Honda CBR1000RR" />
+                </div>
+
+                <div class="container__thumbnail">
+                    <img src="img/gsx-r1000.jpg" alt="Suzuki GSX-1000R" />
+                </div>
+
+                <div class="container__thumbnail">
+                    <img src="img/yzf-r1.jpg" alt="Yamaha YZF-R1" />
+                </div>
+
+                <div class="container__thumbnail">
+                    <img src="img/zx-10r.jpg" alt="Kawasaki ZX-10R" />
+                </div>
+
+                <div class="container__thumbnail">
+                    <img src="img/gsx-1300r.jpg" alt="Suzuki GSX-1300R" />
+                </div>
+            </main>
+
+            <button id="slide-right" class="arrow">
+                <i class="fas fa-chevron-circle-right"></i>
+            </button>
+        </article>
+    </section>
+
+    <script src="carousel-slider.js"></script>
+  </body>
+</html>
