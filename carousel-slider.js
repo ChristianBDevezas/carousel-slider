@@ -53,37 +53,7 @@ function removeThumb() {
   });
 }
 
-thumbnails.forEach((thumb, idx) => {
-  // Pause the slide
-  thumb.addEventListener("mouseover", () => {
-    clearInterval(play);
-  });
-
-  thumb.addEventListener("mouseout", () => {
-    play = setInterval(autoPlay, 20);
-  });
-
-  // Click on thumbnails
-  thumb.addEventListener("click", () => {
-    topContainer.classList.add("change");
-    setTimeout(() => topContainer.classList.remove("change"), 500);
-
-    const image = thumb.firstElementChild;
-    largeImage.src = image.src;
-
-    const text = thumb.firstElementChild.getAttribute("alt");
-    textImage.innerHTML = text;
-
-    currentNumber.innerHTML = idx + 1;
-
-    removeThumb();
-    thumb.classList.add("current-thumb");
-
-    index = idx;
-  });
-});
-
-// Check Current Index
+// Check Current Index of Thumbnails
 function checkIndex() {
   if(index < 0) index = thumbnails.length - 1;
   if(index > thumbnails.length - 1) index = 0;
@@ -102,6 +72,42 @@ function changeImage(index) {
   thumbnails[index].classList.add("current-thumb");
 }
 
+// Display the effect for Image and Text
+function effectImageText() {
+  topContainer.classList.add("change");
+  setTimeout(() => topContainer.classList.remove("change"), 750);
+
+  textImage.classList.add("change");
+  setTimeout(() => textImage.classList.remove("change"), 750);
+}
+
+thumbnails.forEach((thumb, idx) => {
+  // Pause the slide
+  thumb.addEventListener("mouseover", () => {
+    clearInterval(play);
+  });
+
+  thumb.addEventListener("mouseout", () => {
+    play = setInterval(autoPlay, 20);
+  });
+
+  // Click on thumbnails
+  thumb.addEventListener("click", () => {
+    const image = thumb.firstElementChild;
+    largeImage.src = image.src;
+
+    const text = thumb.firstElementChild.getAttribute("alt");
+    textImage.innerHTML = text;
+
+    currentNumber.innerHTML = idx + 1;
+    index = idx;
+
+    effectImageText();
+    removeThumb();
+    thumb.classList.add("current-thumb");
+  });
+});
+
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     if(button.classList.contains("left-btn")) {
@@ -113,8 +119,6 @@ buttons.forEach((button) => {
 
     checkIndex();
     changeImage(index);
-
-    topContainer.classList.add("change");
-    setTimeout(() => topContainer.classList.remove("change"), 500);
+    effectImageText();
   });
 });

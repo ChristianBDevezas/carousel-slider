@@ -32,7 +32,7 @@ section.carousel {
     z-index: 2;
 }
 .change.carousel__top:before {
-    animation: change-opacity .5s;
+    animation: change-opacity .55s;
 }
 @keyframes change-opacity {
     0% {background: rgba(0, 0, 0, 0);}
@@ -61,6 +61,45 @@ section.carousel {
     color: white;
     border-radius: 13px 5px 13px 5px;
     font-size: calc(8px + 1vw);
+    border: 1px solid white;
+    box-shadow: 0 0 0 3px #353535, 0 2px 35px rgba(255, 255, 255, .5);
+    overflow: hidden;
+}
+.change.carousel__top__text {
+    animation: move-text .55s;
+}
+@keyframes move-text {
+    0% {
+        transform: translateX(40px);
+        opacity: .5;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.carousel__top__text::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0px;
+    left: 0px;
+    border-radius: 13px 5px 13px 5px;
+}
+.change.carousel__top__text::before {
+    animation: show-text .55s .2s;
+}
+@keyframes show-text {
+    0% {
+        transform: translateX(-100%);
+        background: none;
+    }
+    100% {
+        transform: translateX(100%);
+        background: rgba(0, 0, 0, .5);
+    }
 }
 
 .carousel__top__number {
@@ -69,8 +108,9 @@ section.carousel {
     right: 10px;
     padding: 2px 4px;
     background: rgba(0, 0, 0, .5);
-    border-radius: 3px;
+    border-radius: 5px;
     color: white;
+    border: 1px solid white;
 }
 
 .carousel__top__number span {
@@ -147,7 +187,6 @@ main.container {
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    transition: all 0.3s;
 }
 
 main.container::-webkit-scrollbar {
