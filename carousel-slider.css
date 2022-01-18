@@ -251,3 +251,8 @@ main.container {
         flex: 0 0 calc(85px + 1vw);
     }
 }
+
+/* Height Control */
+@media(max-width: 920px) and (min-height: 350px) {
+    .carousel__top {height: calc((40vh + 20vw));}
+}
